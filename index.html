@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+        }
+
+        /* Pantalla de carga */
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #121212;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 1s ease-out, visibility 1s ease-out;
+        }
+
+        .loader-container.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .logo {
+            font-size: 50px;
+            font-weight: bold;
+            animation: fadeZoom 2s ease-in-out;
+        }
+
+        @keyframes fadeZoom {
+            0% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Contenido principal */
+        .content {
+            display: none;
+            padding: 50px;
+        }
+
+        .content.visible {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Pantalla de carga -->
+    <div class="loader-container" id="loader">
+        <div class="logo">EO</div>
+    </div>
+
+    <!-- Contenido del portafolio -->
+    <div class="content" id="main-content">
+        <h1>Bienvenido a mi portafolio</h1>
+        <p>Aquí encontrarás mis proyectos y experiencia.</p>
+    </div>
+
+    <script>
+        // Esperar 3 segundos y ocultar la pantalla de carga
+        setTimeout(() => {
+            document.getElementById('loader').classList.add('hidden');
+            document.getElementById('main-content').classList.add('visible');
+        }, 3000);
+    </script>
+
+</body>
+</html>
